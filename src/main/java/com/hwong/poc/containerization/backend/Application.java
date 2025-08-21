@@ -1,4 +1,4 @@
-package com.hwong.playground;
+package com.hwong.poc.containerization.backend;
 
 
 import org.springframework.boot.SpringApplication;

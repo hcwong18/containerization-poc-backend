@@ -1,5 +1,7 @@
-package com.hwong.playground.rest.controller;
+package com.hwong.poc.containerization.backend.rest.controller;
 
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,8 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class ApiController {
 
+    @Value("${sample.property:default}")
+    private String sampleProperty;
+
     @GetMapping("")
     public ResponseEntity<String> helloWorld() {
-        return ResponseEntity.ok("Hello, World!");
+        return ResponseEntity.ok(String.format("Hello, %s!", sampleProperty));
     }
 }
